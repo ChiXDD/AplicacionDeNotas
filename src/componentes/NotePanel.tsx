@@ -1,16 +1,15 @@
 import { useContext, useState } from 'react';
-import NoteContext from '../context/NoteContext'; // Importa el contexto de las notas
+import NoteContext from '../NoteContext'; // Importa el contexto de las notas
 import Draggable from 'react-draggable'; // Importa react-draggable
 import AddNoteDialog from './AddNote'; // Componente para agregar/editar notas
 import ConfirmationModal from './ConfirmationModal'; // Componente de confirmación
 
-// Colores de las notas
 const noteColor = ['#FFD09B', '#B7B7B7', '#CDC1FF', '#BB9AB1', '#A6B37D', '#F1D3CE'];
 
 const NotePanel = () => {
-  const { state, dispatch } = useContext(NoteContext); // Obtiene el estado y el dispatch del contexto
-  const [hoveredNoteId, setHoveredNoteId] = useState<number | null>(null); // Para mostrar botones al hacer hover
-  const [editNote, setEditNote] = useState<null | any>(null); // Para editar nota
+  const { state, dispatch } = useContext(NoteContext);
+  const [hoveredNoteId, setHoveredNoteId] = useState<number | null>(null);
+  const [editNote, setEditNote] = useState<null | any>(null); // Para edición
   const [selectedNote, setSelectedNote] = useState<null | { note: any; color: string }>(null); // Para mostrar detalles
   const [showConfirmModal, setShowConfirmModal] = useState(false); // Mostrar modal de confirmación
   const [pendingAction, setPendingAction] = useState<null | (() => void)>(null); // Acción pendiente a confirmar
@@ -49,7 +48,6 @@ const NotePanel = () => {
     setSelectedNote(null);
   };
 
-  // Renderizar las notas
   return (
     <div className='panelNotas'>
       {state.notes.length === 0 ? (
@@ -58,17 +56,40 @@ const NotePanel = () => {
         state.notes.map((note, index) => {
           const backgroundColor = noteColor[index % noteColor.length]; // Asignar color a la nota
           return (
-            <Draggable key={note.id}> {/* Draggable permite el 'Drag&Drop' */}
-              <div className='notaContainer' onMouseEnter={() => setHoveredNoteId(note.id)} onMouseLeave={() => setHoveredNoteId(null)} style={{ position: 'relative', cursor: 'pointer' }}>
+            <Draggable key={note.id}>
+              <div
+                className='notaContainer'
+                onMouseEnter={() => setHoveredNoteId(note.id)}
+                onMouseLeave={() => setHoveredNoteId(null)}
+                style={{ position: 'relative', cursor: 'pointer' }}
+              >
                 {hoveredNoteId === note.id && (
                   <div className='notaButtons'>
-                    <button className='editarButton tooltip' onClick={(e) => { e.stopPropagation(); handleEdit(note); }}>
+                    <button
+                      className='editarButton tooltip'
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevenir la apertura de los detalles
+                        handleEdit(note);
+                      }}
+                    >
                       <span className='tooltiptext'>Editar</span>
                     </button>
-                    <button className='eliminarButton tooltip' onClick={(e) => { e.stopPropagation(); handleDelete(note.id); }}>
+                    <button
+                      className='eliminarButton tooltip'
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevenir la apertura de los detalles
+                        handleDelete(note.id);
+                      }}
+                    >
                       <span className='tooltiptext'>Eliminar</span>
                     </button>
-                    <button className='mostrarDetallesButton tooltip' onClick={(e) => { e.stopPropagation(); handleShowDetails(note, backgroundColor); }}>
+                    <button
+                      className='mostrarDetallesButton tooltip'
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevenir la propagación del clic
+                        handleShowDetails(note, backgroundColor); // Mostrar detalles al hacer clic
+                      }}
+                    >
                       <span className='tooltiptext'>Mostrar Detalles</span>
                     </button>
                   </div>
@@ -86,12 +107,12 @@ const NotePanel = () => {
         })
       )}
 
-      {/* Editar nota */}
+      {/* Editar */}
       {editNote && (
         <AddNoteDialog
           onClose={() => setEditNote(null)}
           initialNote={editNote} // Pasa la nota a editar
-          isEdit={true}
+          isEdit={true} // Indica que es una edición
         />
       )}
 

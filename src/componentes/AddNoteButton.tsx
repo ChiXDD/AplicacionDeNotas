@@ -1,7 +1,9 @@
 import React from 'react';
-import { AddNoteButtonProps } from '../props/AddNoteButtonProps'; // Importar interfaz de props
 
-// Botón para agregar nota
+type AddNoteButtonProps = {
+  onClick: () => void;
+};
+
 const AddNoteButton: React.FC<AddNoteButtonProps> = ({ onClick }) => (
   <button className='addNoteButton tooltip' onClick={onClick}>
     <span className='tooltiptext'>Agregar Nota</span>

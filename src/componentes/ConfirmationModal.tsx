@@ -1,5 +1,10 @@
 import React from 'react';
-import { ConfirmationModalProps } from '../props/ConfirmationModalProps'; // Importar interfaz de props
+
+type ConfirmationModalProps = {
+  message: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+};
 
 const ConfirmationModal: React.FC<ConfirmationModalProps> = ({ message, onConfirm, onCancel }) => {
   return (

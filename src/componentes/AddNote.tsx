@@ -1,7 +1,12 @@
 import { useContext, useState } from 'react';
-import NoteContext from '../context/NoteContext';
+import NoteContext from '../NoteContext';
 import ConfirmationModal from './ConfirmationModal'; // Modal de confirmación
-import { AddNoteDialogProps } from '../props/AddNoteDialogProps'; // Importar interfaz de props
+
+type AddNoteDialogProps = {
+  onClose: () => void;
+  initialNote?: any;
+  isEdit?: boolean;
+};
 
 const AddNoteDialog: React.FC<AddNoteDialogProps> = ({ onClose, initialNote, isEdit = false }) => {
   const { dispatch } = useContext(NoteContext); // Obtener el dispatch del contexto
