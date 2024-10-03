@@ -3,7 +3,7 @@ import AppBar from './componentes/AppBar'; // Importar componente AppBar
 import NotePanel from './componentes/NotePanel'; // Importar componente NotePanel
 import AddNoteButton from './componentes/AddNoteButton'; // Importar componente AddNoteButton
 import AddNoteDialog from './componentes/AddNote'; // Importar componente AddNoteDialog
-import { NoteProvider } from './context/NoteContext'; // Importar el provider del contexto
+import { NoteProvider } from './NoteContext'; // Importar el provider del contexto
 
 const App = () => {
   const [showAddNote, setShowAddNote] = useState(false); 

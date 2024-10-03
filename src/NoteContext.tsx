@@ -1,4 +1,3 @@
-// NoteContext.tsx
 import React, { createContext, useReducer, ReactNode } from 'react';
 
 // Definir el contenido de las notas
@@ -17,9 +16,9 @@ type NoteState = {
 
 // Definir las acciones que se pueden realizar
 type Action =
-  | { type: 'ADD_NOTE'; payload: Note } // Agregar nota
-  | { type: 'REMOVE_NOTE'; payload: number } // Eliminar nota
-  | { type: 'EDIT_NOTE'; payload: Note }; // Editar nota
+  | { type: 'ADD_NOTE'; payload: Note }
+  | { type: 'REMOVE_NOTE'; payload: number }
+  | { type: 'EDIT_NOTE'; payload: Note };
 
 const initialState: NoteState = {
   notes: [],
