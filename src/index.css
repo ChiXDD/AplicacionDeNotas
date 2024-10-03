@@ -1,0 +1,331 @@
+:root {
+  font-family: "Noto Sans", system-ui;
+  background-color: #FEF9D9;
+  color: #000;
+}
+
+.appBar {
+  background-color: #D2E0FB;
+  margin: 0px;
+  padding: 20px;
+  border-radius: 40px;
+}
+
+.appBar h2 {
+  font-weight: 400;
+}
+
+.addNoteContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.addNoteButton {
+  background-color: #FFD09B;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 70px;
+  width: 70px;
+  background-image: url(/public/addNote.svg);
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttonContainer {
+  margin: 20px;
+  text-align: right;
+}
+
+.addNoteButton:hover {
+  opacity: 0.9;
+}
+
+.paginaPrincipal {
+  display: flex;
+  flex-direction: column;
+}
+
+.textoVacio {
+  text-align: center;
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: left;
+  padding: 20px;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 15%;
+  width: 90%;
+  box-shadow: 0px 10px 10px 9px rgba(0,0,0,0.75);
+  z-index: 1000;
+}
+
+.addLabel {
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.addInput {
+  height: 20px;
+  border-radius: 10px;
+  border: #000 solid 1px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin: 20px;
+  margin-top: 50px;
+  gap: 100px;
+}
+
+.guardarButton {
+  background-color: #75A47F;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 90px;
+  background-image: url(/public/saveButton.svg);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cancelarButton {
+  background-color: #B06161;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 90px;
+  background-image: url(/public/cancelButton.svg);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.guardarButton:hover {
+  opacity: 0.8;
+}
+
+.cancelarButton:hover {
+  opacity: 0.8;
+}
+
+.panelNotas {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.notaContainer {
+  margin: 0px;
+  text-align: center;
+  cursor: grab;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.notaContainer h3 {
+  font-weight: 500;
+}
+
+.notas {
+  font-weight: 400;
+  padding: 20px;
+  box-shadow: 7px 7px 5px #B7B7B7;
+}
+
+.notaButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.editarButton {
+  background-color: #75A47F;
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 5px;
+  background-image: url(/public/editarNota.svg);
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+
+.eliminarButton {
+  background-color: #B06161;
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 5px;
+  background-image: url(/public/eliminar.svg);
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+
+.mostrarDetallesButton {
+  background-color: #E5D9F2;
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 5px;
+  background-image: url(/public/mostrarDetalles.svg);
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+
+.editarButton:hover {
+  opacity: 0.8;
+}
+
+.eliminarButton:hover {
+  opacity: 0.8;
+}
+
+.modalBackground {
+  padding: 20px;
+  z-index: 1000;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.noteDetailsModal {
+  text-align: center;
+  width: 90%;
+  line-height: 30px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 5px 10px 5px rgba(183,183,183,1);
+}
+
+.noteDetailsModal p {
+  font-weight: 400;
+}
+
+.closeButton {
+  background-color: #295F98;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 70px;
+  background-image: url(/public/closeButton.svg);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.closeButtonContainer {
+  text-align: right;
+}
+
+.closeButton:hover {
+  opacity: 0.8;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.confirmationModalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  font-weight: 400;
+}
+
+.confirmationModal {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  width: 90%;
+  height: 250px;
+  z-index: 1000;
+  box-shadow: 0px 5px 10px 5px rgba(183,183,183,1);
+}
+
+.confirmButton {
+  background-color: #75A47F;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 70px;
+  background-image: url(/public/confirmButton.svg);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cancelButton {
+  background-color: #B06161;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 70px;
+  background-image: url(/public/cancelButton2.svg);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
